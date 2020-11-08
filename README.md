@@ -17,7 +17,7 @@ python run.py
 
 
 ## To run the project on colab
-Please refer to the notebook Web_similarity.ipynb which can be exected directly on colab
+Please refer to the notebook  [Web_similarity.ipynb](https://github.com/MathewAlexander/web_similarity/blob/main/Web_similarity.ipynb) which can be exected directly on colab
 
 
 ## To check the output
