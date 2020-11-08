@@ -35,3 +35,10 @@ Stories on reuters  eg.https://in.reuters.com/article/us-usa-election-trade/bide
 
 Storis on ndtv      eg.https://www.ndtv.com/india-news/details-of-dissent-letter-to-sonia-gandhi-steady-decline-no-honest-inspection-2286399
 
+
+## Algorithms
+
+1.Web scrapping         :beautifulsoup
+2.Web content cleaning : Clustering with sentence embeddings
+3. content similarity  : A naive implementation of Sentence Mover's Distance with Sentence embeddings
+
