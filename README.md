@@ -3,7 +3,7 @@ A tool to calculate the similarity between the contents of two websites.
 
 ## To run the project locally
 
-cd into the projec folder and execute the below command from the terminal
+cd into the project folder and execute the below command from the terminal
 
 ```
 pip install -r requirements.txt
