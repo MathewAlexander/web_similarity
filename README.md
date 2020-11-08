@@ -42,5 +42,5 @@ Storis on ndtv      eg.https://www.ndtv.com/india-news/details-of-dissent-letter
 
 2.Web content cleaning : Clustering with sentence embeddings
 
-3. content similarity  : A naive implementation of Sentence Mover's Distance with Sentence embeddings
+3.content similarity  : A naive implementation of Sentence Mover's Distance with Sentence embeddings
 
