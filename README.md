@@ -38,7 +38,7 @@ Storis on ndtv      eg.https://www.ndtv.com/india-news/details-of-dissent-letter
 
 ## Algorithms
 
-1.Web scrapping         :beautifulsoup
+1.Web scrapping        :beautifulsoup
 
 2.Web content cleaning : Clustering with sentence embeddings
 
