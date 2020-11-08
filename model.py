@@ -6,10 +6,10 @@ from sentence_transformers import SentenceTransformer
 from sklearn.cluster import KMeans
 import requests
 from bs4 import BeautifulSoup
+import scipy.spatial as sp
+from utils import Utils as Ut
 
-
-
-
+ad_bag=['https',]
 
 @jit(nopython=True)
 def cosine_similarity_numba(u:np.ndarray, v:np.ndarray):
@@ -90,13 +90,28 @@ class SBERT:
             cluster_0+=text
         if cluster_assignment[indx]==1:
             cluster_1+=text
-    if len(cluster_1)>len(cluster_0):
+    if len(cluster_1)>len(cluster_0) or cluster_0.count('css')> 3:
         web_content=cluster_1
         noise=cluster_0
     else:
         web_content=cluster_0
         noise=cluster_1
     return web_content,noise
+
+  def sentence_movers_distance(self,text_1,text_2):
+      sentence_list_1=Ut.split_into_sentences(text_1)
+      sentence_list_2=Ut.split_into_sentences(text_2)
+
+      matrix1=self.model.encode(sentence_list_1)
+      matrix2=self.model.encode(sentence_list_2)
+
+
+      score=1 - sp.distance.cdist(matrix1, matrix2, 'cosine')
+
+      top_count=int(np.shape(score)[0]*np.shape(score)[1]*0.15)
+      high_scores=score[Ut.largest_indices(score,top_count)]
+      return np.average(high_scores)
+
 
 
 
@@ -108,8 +123,14 @@ class Scrap:
       article_content = article.content
       soup = BeautifulSoup(article_content, 'html5lib')
       content_list=[]
-      titleTag = soup.html.head.title.text # getting the title
-      content_list.append(titleTag)
+      try:
+          titleTag = soup.html.head.title.text # getting the title
+          content_list.append(titleTag)
+      except:
+          titleTag=''
+          pass
+
+
       for p in soup.findAll('p'):
           content_list.append(p.text)
       return content_list
